@@ -1,2 +1,2 @@
-# PIxel
-A CPU SIMD rasterizer (SSE only for the moment)
+# Pixel
+A CPU SIMD rasterizer (SSE and AVX)
