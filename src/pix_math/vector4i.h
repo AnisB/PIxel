@@ -14,18 +14,29 @@
 *
 **/
 
-#ifndef BASE_MACRO
-#define BASE_MACRO
+#ifndef MATH_INTRINSIC_VECTOR4_H
+#define MATH_INTRINSIC_VECTOR4_H
+
+// Library includes
+#include "types.h"
+#include "pix_base/macro.h"
+
+// External includes
+#include <xmmintrin.h>
 
 namespace Pixel
 {
-	#if WIN32
-		#define FUNCTION_NAME __func__
-	#else
-		#define FUNCTION_NAME __PRETTY_FUNCTION__
-	#endif
+	struct Vector4i
+	{
+		__m128 data;
+	};
 
-	#define __forceinline inline
+	__forceinline Vector4i vector4i(float _a, float _b, float _c, float _d);
+	__forceinline Vector4i operator+(const Vector4i& _v1, const Vector4i& _v2);
+	__forceinline Vector4 to_vec4(const Vector4i& _v);
 }
 
-#endif // BASE_MACRO
+
+#include "vector4i.inl"
+
+#endif // MATH_INTRINSIC_VECTOR4_H

@@ -13,19 +13,15 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 **/
-
-#ifndef BASE_MACRO
-#define BASE_MACRO
+#ifndef MATH_TYPES_H
+#define MATH_TYPES_H
 
 namespace Pixel
 {
-	#if WIN32
-		#define FUNCTION_NAME __func__
-	#else
-		#define FUNCTION_NAME __PRETTY_FUNCTION__
-	#endif
-
-	#define __forceinline inline
+	struct Vector4
+	{
+		float x, y, z, w;
+	};
 }
 
-#endif // BASE_MACRO
+#endif // MATH_TYPES_H

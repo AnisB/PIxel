@@ -14,18 +14,26 @@
 *
 **/
 
-#ifndef BASE_MACRO
-#define BASE_MACRO
-
 namespace Pixel
 {
-	#if WIN32
-		#define FUNCTION_NAME __func__
-	#else
-		#define FUNCTION_NAME __PRETTY_FUNCTION__
-	#endif
+	__forceinline Vector4i vector4i(float _a, float _b, float _c, float _d)
+	{
+		Vector4i result;
+		result.data = _mm_set_ps(_d, _c, _b, _a);
+		return result;
+	}
 
-	#define __forceinline inline
+	__forceinline Vector4i operator+(const Vector4i& _v1, const Vector4i& _v2)
+	{
+		Vector4i result;
+		result.data = _mm_add_ps (_v1.data, _v2.data);
+		return result;
+	}
+
+	__forceinline Vector4 to_vec4(const Vector4i& _v)
+	{
+		Vector4 result;
+		_mm_store_ps(&result.x, _v.data);
+		return result;
+	}
 }
-
-#endif // BASE_MACRO

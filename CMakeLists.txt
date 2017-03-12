@@ -45,9 +45,7 @@ GENERATE_LIB("${SOURCES}/pix_containers" pix_containers "Pixel")
 SET(CORELIBS ${CORELIBS} pix_base pix_memory pix_containers)
 
 # Adding the tests if we should
-IF(TESTS)
-  add_subdirectory(${TEST})
-ENDIF(TESTS)
+add_subdirectory(${TEST})
 
 # Adding the programs if we should
 IF(PROGRAMS)
